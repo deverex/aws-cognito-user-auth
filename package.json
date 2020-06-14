@@ -1,0 +1,26 @@
+{
+  "name": "aws-cognito-user-auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon ./app/server",
+    "stage": "node ./app/server",
+    "start": "node ./app/server"
+  },
+  "author": "Devesh Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "amazon-cognito-identity-js": "^4.3.1",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "jwk-to-pem": "^2.0.3",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
