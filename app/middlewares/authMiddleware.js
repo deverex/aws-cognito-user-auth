@@ -30,29 +30,24 @@ module.exports = async (req, res, next) => {
     }
     const decodedJwt = jwt.decode(token, { complete: true });
     if (!decodedJwt) {
-      console.log("Not a valid JWT token");
       res.status(401);
       return res.send("Invalid token");
     }
     const kid = decodedJwt.header.kid;
     const pem = pems[kid];
     if (!pem) {
-      console.log("Invalid token");
       res.status(401);
       return res.send("Invalid token");
     }
     jwt.verify(token, pem, function (err, payload) {
       if (err) {
-        console.log("Invalid Token.");
         res.status(401);
         return res.send("Invalid tokern");
       } else {
-        console.log("Valid Token.");
         return next();
       }
     });
   } catch (error) {
-    console.log("Error! Unable to download JWKs");
     res.status(500);
     return res.send("Error! Unable to download JWKs");
   }
